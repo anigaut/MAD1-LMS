@@ -1,0 +1,31 @@
+nav {
+    background: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.logo a {
+    margin-left: 40px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.nav-links a {
+    display: inline-block;
+    margin: 20px;
+    font-size: 17px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+form {
+    width: 40vw;
+}
+
+

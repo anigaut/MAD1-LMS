@@ -1,0 +1,52 @@
+{% extends "admin-base-layout.html" %}
+
+{% block head %}
+<title>Admin Register</title>
+{% endblock head %}
+
+{% block content %}
+<div class="row justify-content-center" style="margin: 100px 200px;">
+    <div class="col-9">
+        <div class="card border-2">
+            <div class="card-body">
+                <div class="text-center">
+                    <h1 class="card-title">Create Your Admin Account</h1>
+                    <p class="lead">Already have an account? Login <a href="{{url_for('admin.login')}}">here</a></p>
+                </div>
+
+                <form action="/admin/register" method="POST" id="admin-register-form">
+                    {{form.hidden_tag()}}
+                        <div class="m-4">
+                            <div>
+                                {{ form.first_name.label(class = "form-label my-3") }}
+                                {{ form.first_name(class = "form-control") }}
+                            </div>
+                            
+                            <div>
+                                {{ form.last_name.label(class = "form-label my-3") }}
+                                {{ form.last_name(class = "form-control") }}
+                            </div>
+                            
+                            <div>
+                                {{ form.email.label(class = "form-label my-3") }}
+                                {{ form.email(class = "form-control") }}
+                            </div>
+
+                            <div>
+                                {{ form.password.label(class = "form-label my-3") }}
+                                {{ form.password(class = "form-control") }}
+                            </div>
+                            
+                            <div>
+                                {{ form.confirm_password.label(class = "form-label my-3") }}
+                                {{ form.confirm_password(class = "form-control") }}
+                            </div>
+    
+                            {{ form.submit(class = "btn btn-primary mt-4")}}
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

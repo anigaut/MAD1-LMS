@@ -1,0 +1,39 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Manage Genres</title>
+<style>
+    table, th, td {
+        border: 0.5px solid black;
+        width: 90vw;
+        text-align: center;
+    }
+
+    .center {
+        margin: auto;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+<table class="m-5">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for genre in genres %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ genre.name }}</td>
+        <td>{{ genre.description }}</td>
+        <td><a href="/admin/genres/edit/{{ genre.id }}" class="btn btn-primary">Edit</a></td>
+        <td><a href="/admin/genres/delete/{{ genre.id }}" class="btn btn-primary">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('admin.add_genre') }}" class=" mx-5 btn btn-dark">Add New Genre</a>
+{% endblock content %}

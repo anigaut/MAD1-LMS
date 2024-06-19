@@ -1,0 +1,22 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Statistics</title>
+<style>
+    .container-lg{
+        margin-top: 50px;
+        margin-left: 120px;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container-lg">
+        <div class="card bg-info-subtle" style="width:85vw;">
+            <div class="card-body justify-content-center">
+              <h1>Useful Stats</h1>
+            </div>
+        </div>
+        <img src="/static/stats/books_hist.png">
+        <img src="/static/stats/genres_pie.png">
+    </div>
+{% endblock %}

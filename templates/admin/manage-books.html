@@ -1,0 +1,44 @@
+{% extends "admin-base-layout.html" %}
+
+{% block head %}
+<title>Manage Books</title>
+<style>
+    table, th, td {
+        border: 0.5px solid black;
+        width: 90vw;
+        text-align: center;
+    }
+
+    .center {
+        margin: auto;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+<table class="m-5">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Price (₹)</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.genre }}</td>
+        <td>{{book.price}}</td>
+        <td><a href="/admin/books/edit/{{book.id}}" class="btn btn-primary">Edit</a></td>
+        <td><a href="/admin/books/delete/{{book.id}}" class="btn btn-primary">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('admin.add_book') }}" class=" mx-5 btn btn-dark">Add New Book</a>
+{% endblock content %}

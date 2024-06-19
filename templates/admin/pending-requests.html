@@ -1,0 +1,38 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Pending Requests</title>
+<style>
+    table, th, td {
+        border: 0.5px solid black;
+        width: 90vw;
+        text-align: center;
+    }
+
+    .center {
+        margin: auto;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+<h1 class="m-5">Pending Requests</h1>
+<table class="m-5">
+    <tr>
+        <th>S.No</th>
+        <th>Book ID</th>
+        <th>User ID</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for request in pending_requests %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ request.book_id }}</td>
+            <td>{{ request.user_id }}</td>
+            <td><a href="/admin/pending-requests/{{ request.book_id }}/{{ request.user_id }}/approve" class="btn btn-primary">Approve</a></td>
+            <td><a href="/admin/pending-requests/{{ request.book_id }}/{{ request.user_id }}/reject" class="btn btn-primary">Reject</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends "user-base-layout.html" %}
+
+{% block head %}
+<title>Opus Books</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/user/user-home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/user/book-display.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="container-lg">
+    {% if current_user.is_authenticated %}
+    <div class="card bg-info-subtle" style="width: 100%;">
+        <div class="card-body">
+          <h1>Welcome, {{ current_user.first_name }}</h1>
+        </div>
+    </div>
+    {% else %}
+    <div class="card bg-info-subtle" style="width: 100%;">
+        <div class="card-body">
+          <h1>Welcome to Opus Books</h1>
+          <p>Please Login or register to read and borrow books</p>
+        </div>
+    </div>
+    {% endif %}
+    <h2>Best Sellers</h2>
+    <hr>
+    <div class="row">
+        <div class="card-container">
+            {% for book in books1 %}
+                <div class="card">
+                    <img src="static/covers/{{book.cover_pic}}" width="100%">
+                    <div class="card-content">
+                        <div class="details">
+                            <h4>{{book.name}}</h4>
+                            <p>{{book.author}}</p>
+                        </div>
+                        <a href="/books/{{book.id}}" class="btn btn-primary">See More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> 
+
+    <h2>Editors' Choice</h2>
+    <hr>
+    <div class="row">
+        <div class="card-container">
+            {% for book in books2 %}
+                <div class="card">
+                    <img src="static/covers/{{book.cover_pic}}" width="100%">
+                    <div class="card-content">
+                        <div class="details">
+                            <h4>{{book.name}}</h4>
+                            <p>{{book.author}}</p>
+                        </div>
+                        <a href="/books/{{book.id}}" class="btn btn-primary">See More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>   
+{% endblock content %}

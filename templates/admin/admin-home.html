@@ -1,0 +1,63 @@
+{% extends "admin-base-layout.html" %}
+
+{% block head %}
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/admin/admin-home.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="container-lg">
+    <div class="row">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h4>Ongoing Borrowings</h4>
+                    <p>View the books currently borrowed by users and revoke access if the user has been had the book for more than 7 days</p>
+                    <a href="{{ url_for('admin.current_borrowings') }}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="card-content">
+                    <h4>Pending Requests</h4>
+                    <p>Requests for Borrowings that have not been approved yet</p>
+                    <a href="{{ url_for('admin.pending_requests') }}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h4>Manage Books</h4>
+                    <p>Add, Remove and Edit the Existing Books in the Library</p>
+                    <a href="{{ url_for('admin.manage_books') }}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="card-content">
+                    <h4>Manage Genres</h4>
+                    <p>Add, Remove and Edit the Existing Genres in the Library and edit the books in each genre</p>
+                    <a href="{{ url_for('admin.manage_genres' )}}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card-container">    
+            <div class="card">
+                <div class="card-content">
+                    <h4>Stats</h4>
+                    <p>Statistics on borrowings</p>
+                    <a href="{{ url_for('admin.stats' )}}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

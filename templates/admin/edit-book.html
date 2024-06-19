@@ -1,0 +1,59 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Edit Book Details</title>
+{% endblock head %}
+
+{% block content %}
+    <div class="container-lg">
+        <div class="row justify-content-center" style="margin: 125px 200px;">
+            <div class="col-9">
+                <div class="card border-2">
+                    <div class="card-body">
+                        <div class="text-center mb-5">
+                            <h1 class="card-title">Edit Book Details</h1>
+                        </div>
+
+                        <h3>Current Details</h3>
+                        <p><strong>Name: </strong>{{ book.name }}</p>
+                        <p><strong>Author: </strong>{{ book.author }}</p>
+                        <p><strong>Genre: </strong>{{ book.genre }}</p>
+                        <p><strong>Description: </strong>{{ book.description }}</p>
+                        <p><strong>Price: </strong>₹{{ book.price }}</p>
+
+                        <form action="/admin/books/edit/{{book.id}}" method="POST" id="add-book-form" enctype="multipart/form-data">
+                            {{form.hidden_tag()}}
+                            <div class="m-4">
+                                <div>
+                                    {{ form.name.label(class = "form-label my-3") }}
+                                    {{ form.name(class = "form-control") }}
+                                </div>
+
+                                <div>
+                                    {{ form.author.label(class = "form-label my-3") }}
+                                    {{ form.author(class = "form-control") }}
+                                </div>
+
+                                <div>
+                                    {{ form.genre.label(class = "form-label my-3") }}
+                                    {{ form.genre(class = "form-control") }}
+                                </div>
+
+                                <div>
+                                    {{ form.price.label(class = "form-label my-3") }}
+                                    {{ form.price(class = "form-control") }}
+                                </div>
+
+                                <div>
+                                    {{ form.description.label(class = "form-label my-3") }}
+                                    {{ form.description(class = "form-control") }}
+                                </div>
+
+                            </div>
+                            {{ form.submit(class = "btn btn-primary m-4")}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

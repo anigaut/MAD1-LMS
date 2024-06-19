@@ -1,0 +1,28 @@
+.page-container {
+    display: flex;
+}
+
+.activity {
+    margin-left: 300px;
+}
+
+.activity h5 {
+    display: inline;
+}
+
+.activity img {
+    height: 20vh;
+}
+
+.book-info {
+    display: flex;
+}
+
+.book-info .details {
+    margin-left: 50px;
+}
+
+.personal-details {
+    padding: 30px;
+    border: 1px solid #ccc;
+}

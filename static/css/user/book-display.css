@@ -1,0 +1,26 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 25vw;
+    margin: 20px;
+}
+
+.card img {
+    height: 400px;
+}
+.card-content {
+    padding: 15px;
+}
+
+.card-content a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.details {
+    height: 20vh;
+}

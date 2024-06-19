@@ -1,0 +1,33 @@
+{% extends "user-base-layout.html" %}
+{% block head %}
+<title>Browse</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/user/book-display.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="container-lg">
+    <div class="card bg-info-subtle mt-5" style="width: 100%;">
+        <div class="card-body">
+          <h1>Select the Genre You'd Like to Explore</h1>
+        </div>
+    </div>
+
+    {% for row in rows %}
+      <div class="row">
+        <div class="card-container">
+            {% for genre in row %}
+            <div class="card">
+                <div class="card-content">
+                    <div class="details">
+                      <h4>{{genre.name}}</h4>
+                      <p>{{genre.description}}</p>
+                    </div>
+                    <a href="/browse/genres/{{genre.id}}" class="btn btn-primary">GO</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock content %}

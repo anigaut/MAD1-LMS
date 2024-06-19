@@ -1,0 +1,41 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Add Genre</title>
+{% endblock head %}
+
+{% block content %}
+    <div class="container-lg">
+        <div class="row justify-content-center" style="margin: 125px 200px;">
+            <div class="col-9">
+                <div class="card border-2">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h1 class="card-title">Edit Genre</h1>
+                        </div>
+
+                        <h3>Current Details</h3>
+                        <p><strong>Name: </strong>{{ genre.name }}</p>
+                        <p><strong>Description: </strong>{{ genre.description }}</p>
+
+                        <form action="/admin/genres/edit/{{genre.id}}" method="POST" id="add-genre-form" enctype="multipart/form-data">
+                            {{form.hidden_tag()}}
+                            <div class="m-4">
+                                <div>
+                                    {{ form.name.label(class = "form-label my-3") }}
+                                    {{ form.name(class = "form-control") }}
+                                </div>
+
+                                <div>
+                                    {{ form.description.label(class = "form-label my-3") }}
+                                    {{ form.description(class = "form-control") }}
+                                </div>
+
+                            </div>
+                            {{ form.submit(class = "btn btn-primary m-4")}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

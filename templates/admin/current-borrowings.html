@@ -1,0 +1,43 @@
+{% extends "admin-base-layout.html" %}
+{% block head %}
+<title>Current Borrowings</title>
+<style>
+    table, th, td {
+        border: 0.5px solid black;
+        width: 90vw;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .center {
+        margin: auto;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+<h1 class="m-5">Current Borrowings</h1>
+<table class="m-5">
+    <tr>
+        <th>S.No</th>
+        <th>Book ID</th>
+        <th>User ID</th>
+        <th>Time Approved</th>
+        <th>Expired?</th>
+        <th>Access</th>
+    </tr>
+
+    {% for borrowing in borrowings %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ borrowing[1] }}</td>
+            <td>{{ borrowing[2] }}</td>
+            <td>{{ borrowing[3] }}</td>
+            <td>{{ borrowing[4] }}</td>
+            {% if borrowing[4] == True %}
+                <td><a href="/admin/current-borrowings/{{borrowing[0]}}/revoke" class="btn btn-dark">Revoke Access</a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

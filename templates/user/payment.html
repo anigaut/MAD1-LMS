@@ -1,0 +1,30 @@
+{% extends "user-base-layout.html" %}
+{% block head %}
+<title>Payment for {{book.name}}</title>
+<style>
+    h1 {
+        margin-top: 100px;
+        margin-left: 450px;
+    }
+    #qr {
+        margin-left: 400px;
+        height: 50vh;
+        width: 30vw;
+    }
+
+    .finish-payment{
+        display: block;
+        width: 20vw;
+        margin-top: 30px;
+        margin-left: 450px;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container-lg">
+        <h1>Make your Payment</h1>
+        <img src="/static/pics/QR_Code.jpg" id="qr">
+        <a href="/books/{{book.id}}/confirm-payment" class="finish-payment btn btn-dark">Confirm Payment</a>
+    </div>
+{% endblock content %}

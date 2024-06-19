@@ -1,0 +1,83 @@
+{% extends "user-base-layout.html" %}
+{% block head %}
+<title>Opus - Search</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/user/book-display.css') }}">
+{% endblock head %}
+
+{% block content %}
+    {% if not books and not genres and not books_by_author %}
+        <div class="container-lg">
+            <div class="card bg-info-subtle mt-5" style="width: 100%;">
+                <div class="card-body">
+                <h1>Couldn't Find any Results for "{{searched}}"</h1>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container-lg">
+            <div class="card bg-info-subtle mt-5" style="width: 100%;">
+                <div class="card-body">
+                <h1>Search Results for "{{searched}}"</h1>
+                </div>
+            </div>
+        </div>   
+    {% endif %}
+
+    <div class="container-lg">
+        {% if books %}
+            {% for row in books %}
+                <div class="row">
+                    <div class="card-container">
+                        {% for book in row %}
+                            <div class="card">
+                                <img src="/static/covers/{{book.cover_pic}}" width="100%">
+                                <div class="card-content">
+                                    <h4>{{book.name}}</h4>
+                                    <p>{{book.author}}</p>
+                                    <a href="/books/{{book.id}}" class="btn btn-primary">See More</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+            
+        {% if genres %}
+            {% for row in genres %}
+                <div class="row">
+                    <div class="card-container">
+                        {% for genre in row %}
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>{{genre.name}}</h4>
+                                <p>{{genre.description}}</p>
+                                <a href="/browse/genres/{{genre.id}}" class="btn btn-primary">GO</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if books_by_author %}
+            {% for row in books_by_author %}
+                <div class="row">
+                    <div class="card-container">
+                        {% for book in row %}
+                            <div class="card">
+                                <img src="/static/covers/{{book.cover_pic}}" width="100%">
+                                <div class="card-content">
+                                    <h4>{{book.name}}</h4>
+                                    <p>{{book.author}}</p>
+                                    <a href="/books/{{book.id}}" class="btn btn-primary">See More</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock content %}
