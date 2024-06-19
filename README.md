@@ -11,5 +11,5 @@ All books in the library are stored locally.
 
 ## Instructions for Use
 - Clone the repository and run `python3 app.py` (Linux & Mac) or `python app.py` (Windows)
-- If an error regarding Python dependencies or certain modules not being installed, run `pip install -r requirements.txt` and then run the app.
+- If an error regarding Python dependencies or certain modules not being installed occurs, run `pip install -r requirements.txt` and then run the app.
 
