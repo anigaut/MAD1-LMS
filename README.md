@@ -1,4 +1,4 @@
-# IIT-M BS: Modern Application Development 1 Project
+# IIT-M BS: Modern Application Development - 1 Project
 
 ## Opus Books
 Presenting Opus Books, an online library where users can borrow and purchase books to read. Written as a web app, Opus is written in Python.
